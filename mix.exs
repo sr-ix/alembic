@@ -27,4 +27,11 @@ defmodule Alembic.Mixfile do
   defp deps do
     []
   end
+
+  defp package do
+    [files: ~w(lib mix.exs README.md LICENSE UNLICENSE VERSION),
+     contributors: ["Steven Rutkowski"],
+     licenses: ["Unlicense"],
+     links: %{"GitHub" => "https://github.com/sr-ix/alembic"}]
+  end
 end
