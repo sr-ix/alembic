@@ -44,11 +44,8 @@ defmodule Alembic.Registry do
   def handle_call({:lookup, name}, _from, state) do
     {:reply, HashDict.fetch(state.names, name), state}
   end
-  def handle_call({:stop, _from, state}) do
-    {:stop, :normal, :ok, state}
-  end
 
-  def handle_cast({:create, name}, state) do
+  def handle_call({:create, name}, _from, state) do
     if HashDict.get(state.names, name) do
       {:noreply, state}
     else
@@ -60,6 +57,10 @@ defmodule Alembic.Registry do
       GenEvent.sync_notify(state.events, {:create, name, pid})
       {:noreply, %{state | names: names, refs: refs}}
     end
+  end
+
+  def handle_call({:stop, _from, state}) do
+    {:stop, :normal, :ok, state}
   end
 
   def handle_info({:DOWN, ref, :process, pid, _reason}, state) do
