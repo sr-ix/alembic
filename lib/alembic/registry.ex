@@ -45,7 +45,7 @@ defmodule Alembic.Registry do
     {:reply, HashDict.fetch(state.names, name), state}
   end
 
-  def handle_call({:create, name}, _from, state) do
+  def handle_cast({:create, name}, state) do
     if HashDict.get(state.names, name) do
       {:noreply, state}
     else

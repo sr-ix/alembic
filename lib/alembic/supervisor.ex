@@ -12,7 +12,7 @@ defmodule Alembic.Supervisor do
   def init(:ok) do
     children = [
       worker(GenEvent, [[name: @manager_name]]),
-      supervisor(Alembic.Activity.Supervisor, [[name: @bucket_sup_name]]),
+      supervisor(Alembic.Activity.Supervisor, [[name: @activity_sup_name]]),
       worker(Alembic.Registry, [@manager_name, @activity_sup_name, [name: @registry_name]])
     ]
 
