@@ -12,7 +12,8 @@ defmodule Alembic.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [applications: [],
+     mod: {Alembic, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -28,10 +29,10 @@ defmodule Alembic.Mixfile do
     []
   end
 
-  defp package do
-    [files: ~w(lib mix.exs README.md LICENSE UNLICENSE VERSION),
-     contributors: ["Steven Rutkowski"],
-     licenses: ["Unlicense"],
-     links: %{"GitHub" => "https://github.com/sr-ix/alembic"}]
-  end
+  #defp package do
+  #  [files: ~w(lib mix.exs README.md LICENSE UNLICENSE VERSION),
+  #   contributors: ["Steven Rutkowski"],m
+  #   licenses: ["Unlicense"],
+  #   links: %{"GitHub" => "https://github.com/sr-ix/alembic"}]
+  #end
 end
