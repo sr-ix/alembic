@@ -4,6 +4,8 @@ defmodule Alembic.Mixfile do
   def project do
     [app: :alembic,
      version: "0.0.1",
+     deps_path: "../../deps",
+     lockfile: "../../mix.lock",
      elixir: "~> 1.0",
      deps: deps]
   end
